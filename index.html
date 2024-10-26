@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset=" UTF-8">
+    <title>Calculadora de volumen de caja</title>
+
+</head>
+
+<body>
+    <h1>Calculadora de volumen de cajas</h1>
+    <form id="formvolumen">
+        <label for="alto">alto (cm):</label>
+        <input type="number" id="alto" name="alto" required><br><br>
+
+        <label for="ancho">ancho(cm):</label>
+        <input type="number" id="ancho" name="ancho" required><br><br>
+
+        <label for="largo">Largo(cm):</label>
+        <input type="number" id="largo" name="largo" required><br><br>
+
+        <button type="button" onclick="calcularvolumen()">calcular
+            volumen</button>
+
+        <p>volumen total: <span id="resultado">0</span></p>
+    </form>
+
+</body>
+
+</html>
+
+<script>
+    function calcularvolumen() {
+        // obtener los valores de los inputs
+        const alto = parseFloat(document.getElementById('alto').value);
+        const ancho =
+            parseFloat(document.getElementById('ancho').value);
+        const largo =
+            parseFloat(document.getElementById('largo').value)
+            
+        //validar que los valores seannumeros
+        if (isNaN(alto) || isNaN(ancho) || isNaN(largo)) {
+            alert('por favor, ingresar valores numericos validos.');
+            return
+        }
+        //calcular el volumen
+        const volumen = alto * ancho * largo;
+        //multiplicarel resultado por 400
+        const resultadofinal = volumen * 400
+        //asignar el resultado a la etiqueta
+        document.getElementById('resultado').innerText = resultadofinal;
+    }
+</script>
